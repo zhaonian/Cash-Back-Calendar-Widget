@@ -30,6 +30,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(CashbackDataSource.cashbacks) }
         cardList.apply {
             setHasFixedSize(true)
+            addItemDecoration(VerticalSpaceItemDecoration(36))
             layoutManager = LinearLayoutManager(context)
             adapter = cardListAdapter
         }
