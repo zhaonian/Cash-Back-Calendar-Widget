@@ -1,9 +1,12 @@
 package io.keyu.cashbackcalendarwidget.model
 
+import io.keyu.cashbackcalendarwidget.R
+
 object CashbackDataSource {
     val cashbacks = listOf(
         Card(
             "Chase Freedom",
+            R.drawable.jay_chou,
             listOf(
                 listOf("5% at Gas Stations", "5% at Tolls", "5% at Drugstores"),    // Q1
                 listOf("5% at Pornhub", "5% at sadTolls", "5% at ads"),    // Q2
@@ -13,6 +16,7 @@ object CashbackDataSource {
         ),
         Card(
             "Chase Sapphire",
+            R.drawable.jay_chou,
             listOf(
                 listOf("5% at Gas Stations", "5% at Tolls", "5% at Drugstores"),    // Q1
                 listOf("5% at Pornhub", "5% at sadTolls", "5% at ads"),    // Q2
@@ -22,6 +26,7 @@ object CashbackDataSource {
         ),
         Card(
             "Citi",
+            R.drawable.jay_chou,
             listOf(
                 listOf("5% at Gas Stations", "5% at Tolls", "5% at Drugstores"),    // Q1
                 listOf("5% at Pornhub", "5% at sadTolls", "5% at ads"),    // Q2
@@ -31,6 +36,7 @@ object CashbackDataSource {
         ),
         Card(
             "Wells Fargo",
+            R.drawable.jay_chou,
             listOf(
                 listOf("5% at Gas Stations", "5% at Tolls", "5% at Drugstores"),    // Q1
                 listOf("5% at Pornhub", "5% at sadTolls", "5% at ads"),    // Q2
