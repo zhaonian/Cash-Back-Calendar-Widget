@@ -14,6 +14,7 @@ import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.adapter.CardRecyclerViewAdapter
 import io.keyu.cashbackcalendarwidget.model.CashbackDataSource
@@ -30,8 +31,8 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(CashbackDataSource.cashbacks) }
         cardList.apply {
             setHasFixedSize(true)
-            addItemDecoration(VerticalSpaceItemDecoration(36))
-            layoutManager = LinearLayoutManager(context)
+            addItemDecoration(VerticalSpaceItemDecoration(18))
+            layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = cardListAdapter
         }
 
