@@ -1,5 +1,6 @@
 package io.keyu.cashbackcalendarwidget
 
+import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
@@ -10,6 +11,10 @@ import android.view.Menu
 import android.view.MenuItem
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.app_bar_main.*
+import android.widget.Toast
+import android.content.ActivityNotFoundException
+import android.net.Uri
+
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -72,10 +77,24 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
             }
             R.id.nav_share -> {
-
+                val shareIntent = Intent().apply {
+                    action = Intent.ACTION_SEND
+                    type = "text/plain"
+                    putExtra(
+                        Intent.EXTRA_TEXT,
+                        "A simple and fast way to check all your credit cards cash back categories: https://play.google.com/store/apps/details?id=$packageName"
+                    )
+                }
+                startActivity(shareIntent)
             }
-            R.id.nav_send -> {
-
+            R.id.nav_rate -> {
+                val uri = Uri.parse("market://details?id=$packageName")
+                val appLinkToMarket = Intent(Intent.ACTION_VIEW, uri)
+                try {
+                    startActivity(appLinkToMarket)
+                } catch (e: ActivityNotFoundException) {
+                    Toast.makeText(this, " unable to find the app in the market", Toast.LENGTH_LONG).show()
+                }
             }
         }
 
