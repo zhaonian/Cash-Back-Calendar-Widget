@@ -29,6 +29,14 @@
                 android:textColor="#ffffff"
                 android:textSize="14sp"/>
 
+        <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/cashbackList"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:paddingLeft="8dp"
+                android:paddingRight="8dp"
+                android:background="#E0E0E0"/>
+
         <ImageView
                 android:id="@+id/cardLogo"
                 android:layout_width="match_parent"
@@ -37,14 +45,7 @@
                 android:src="@mipmap/ic_launcher_round"
                 android:background="#000000"/>
 
-        <!--<androidx.recyclerview.widget.RecyclerView-->
-        <!--android:id="@+id/cashbackList"-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="match_parent"-->
-        <!--android:paddingLeft="8dp"-->
-        <!--android:paddingRight="8dp"-->
-        <!--android:paddingTop="8dp"-->
-        <!--android:background="#E0E0E0"/>-->
+
 
     </LinearLayout>
 
