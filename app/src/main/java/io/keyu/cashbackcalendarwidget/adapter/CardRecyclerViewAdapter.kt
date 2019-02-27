@@ -1,6 +1,7 @@
 package io.keyu.cashbackcalendarwidget.adapter
 
 import android.view.ViewGroup
+import androidx.core.view.marginBottom
 import androidx.recyclerview.widget.RecyclerView
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.model.Card
@@ -21,11 +22,13 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
 
     override fun onBindViewHolder(holder: CardViewHolder, position: Int) {
         val curCard = cardList[position]
+        holder.itemView.elevation = 0F
+        holder.itemView.background.alpha = 0
         holder.cardView.apply {
             //            setPostOwnerDisplayName(curPost.content.userDisplayedName)
 //            setPostOwnerRole(curPost.content.role)
             setCardName(curCard.name)
-            setCardLogo(R.drawable.abc_btn_radio_material)
+            setCardLogo(curCard.logo)
             setCardCashbacks(listOf("adfas", "adfs", "Asdfa"))
         }
     }
