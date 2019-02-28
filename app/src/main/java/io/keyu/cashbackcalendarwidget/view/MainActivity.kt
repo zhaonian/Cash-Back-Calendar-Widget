@@ -47,11 +47,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val discoverIt = selectionView.findViewById<CheckBox>(R.id.discoverIt)
             setCheckbox(discoverIt, SharedPreferenceService.DISCOVER_IT)
 
+            val discoverMore = selectionView.findViewById<CheckBox>(R.id.discoverMore)
+            setCheckbox(discoverMore, SharedPreferenceService.DISCOVER_MORE)
+
             val chaseFreedom = selectionView.findViewById<CheckBox>(R.id.chaseFreedom)
             setCheckbox(chaseFreedom, SharedPreferenceService.CHASE_FREEDOM)
 
             val citiDividend = selectionView.findViewById<CheckBox>(R.id.citiDividend)
             setCheckbox(citiDividend, SharedPreferenceService.CITI_DIVIDEND)
+
+            val bestBuy = selectionView.findViewById<CheckBox>(R.id.bestBuy)
+            setCheckbox(bestBuy, SharedPreferenceService.BESTBUY_VISA)
 
             AlertDialog.Builder(this).setView(selectionView).create().show()
         }
