@@ -24,13 +24,15 @@ import kotlinx.android.synthetic.main.view_card_list.*
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
+    private var data = CashbackDataSource.cashbacks
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
         // staggerd cards grid
-        val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(CashbackDataSource.cashbacks) }
+        val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(data) }
         cardList.apply {
             setHasFixedSize(true)
             addItemDecoration(VerticalSpaceItemDecoration(18))

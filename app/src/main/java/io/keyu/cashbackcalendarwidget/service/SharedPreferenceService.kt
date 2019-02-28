@@ -4,10 +4,10 @@ import android.content.Context
 import android.content.SharedPreferences
 
 object SharedPreferenceService {
-    private const val CASHBACK_WIDGET = "cashbackwidget"
-    const val DISCOVER_IT = "discover_it"
-    const val CHASE_FREEDOM = "chase_freedom"
-    const val CITI_DIVIDEND = "citi_dividend"
+    private const val CASHBACK_WIDGET = "Cashback Widget"
+    const val DISCOVER_IT = "Discover It"
+    const val CHASE_FREEDOM = "Chase Freedom"
+    const val CITI_DIVIDEND = "Citi Dividend"
 
     private fun getSharedPreferences(ctx: Context): SharedPreferences {
         return ctx.getSharedPreferences(CASHBACK_WIDGET, Context.MODE_PRIVATE)
