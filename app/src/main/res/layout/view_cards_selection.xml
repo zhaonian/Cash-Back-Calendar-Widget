@@ -12,6 +12,12 @@
             android:checked="true"
             android:text="Discover It"/>
     <CheckBox
+            android:id="@+id/discoverMore"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:checked="true"
+            android:text="Discover More"/>
+    <CheckBox
             android:id="@+id/chaseFreedom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,10 +30,10 @@
             android:checked="true"
             android:text="Citi Dividend"/>
     <CheckBox
-            android:id="@+id/boa123"
+            android:id="@+id/bestBuy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="BOA 123"/>
+            android:text="bestBuyVisa"/>
 
 </LinearLayout>

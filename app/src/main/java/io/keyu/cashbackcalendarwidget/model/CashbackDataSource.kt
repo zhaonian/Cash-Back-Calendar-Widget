@@ -24,7 +24,7 @@ object CashbackDataSource {
                 listOf("5% at Gas sd", "5% at daf", "12% at Drugstorasdfes"),    // Q3
                 listOf("5% at Gas ads", "5% at Tolls", "1% at Drugstores")     // Q4
             ),
-            false
+            true
         ),
         Card(
             "Chase Freedom",
