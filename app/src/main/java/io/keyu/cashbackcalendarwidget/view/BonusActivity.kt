@@ -4,8 +4,8 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import io.keyu.cashbackcalendarwidget.R
-import kotlinx.android.synthetic.main.activity_bonus.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.activity_bonus.back
+import kotlinx.android.synthetic.main.activity_bonus.share
 
 class BonusActivity : AppCompatActivity() {
 
