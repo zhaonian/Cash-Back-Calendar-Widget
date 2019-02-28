@@ -6,26 +6,25 @@
               android:padding="16dp">
 
     <CheckBox
+            android:id="@+id/discoverIt"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Discover It"/>
     <CheckBox
+            android:id="@+id/chaseFreedom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Chase Freedom"/>
     <CheckBox
+            android:id="@+id/citiDividend"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
-            android:text="Chase Sapphire"/>
+            android:text="Citi Dividend"/>
     <CheckBox
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Amex Marriot Bonvoy"/>
-    <CheckBox
+            android:id="@+id/boa123"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:checked="true"
