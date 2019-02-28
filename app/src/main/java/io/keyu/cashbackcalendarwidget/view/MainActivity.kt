@@ -64,7 +64,7 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
         // Handle navigation view item clicks here.
         when (item.itemId) {
             R.id.nav_darkmode -> {
-                // Handle the camera action
+                // Handle the darkmode action
             }
             R.id.nav_share -> {
                 val shareIntent = Intent().apply {
@@ -85,6 +85,10 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 } catch (e: ActivityNotFoundException) {
                     Toast.makeText(this, " unable to find the app in the market", Toast.LENGTH_LONG).show()
                 }
+            }
+            R.id.nav_bonus -> {
+                val bonusIntent = Intent(this, BonusActivity::class.java)
+                startActivity(bonusIntent)
             }
         }
 
