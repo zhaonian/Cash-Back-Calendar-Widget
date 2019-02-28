@@ -8,22 +8,27 @@
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Discover It"/>
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Chase Freedom"/>
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Chase Sapphire"/>
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="Amex Marriot Bonvoy"/>
     <CheckBox
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:checked="true"
             android:text="BOA 123"/>
 
 </LinearLayout>
