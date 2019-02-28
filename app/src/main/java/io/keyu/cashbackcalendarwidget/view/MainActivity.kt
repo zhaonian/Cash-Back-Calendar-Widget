@@ -13,6 +13,7 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
+import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.keyu.cashbackcalendarwidget.R
@@ -36,9 +37,9 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             adapter = cardListAdapter
         }
 
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show()
+        fab.setOnClickListener {
+            val selectionView = layoutInflater.inflate(R.layout.view_cards_selection, null, false)
+            AlertDialog.Builder(this).setView(selectionView).create().show()
         }
 
         val toggle = ActionBarDrawerToggle(
