@@ -2,8 +2,6 @@ package io.keyu.cashbackcalendarwidget.adapter
 
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.marginLeft
-import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.view.CardView
