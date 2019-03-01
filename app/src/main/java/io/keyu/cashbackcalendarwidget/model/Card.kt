@@ -10,5 +10,5 @@ data class Card(
     val name: String,
     @DrawableRes val logo: Int,
     val cashbacks: List<List<String>>,
-    val visibility: Boolean
+    var visibility: Boolean
 )

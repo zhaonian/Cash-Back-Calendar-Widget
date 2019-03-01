@@ -24,6 +24,7 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
         holder.itemView.elevation = 0F
         holder.itemView.background.alpha = 0
         if (!curCard.visibility) {
+            // TODO: clear the margins and paddings
             holder.itemView.layoutParams = ViewGroup.LayoutParams(0, 0)
             holder.itemView.visibility = View.GONE
         }
@@ -36,5 +37,6 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
 
     fun setCardList(cardList: List<Card>) {
         this.cardList = cardList
+        notifyDataSetChanged()
     }
 }

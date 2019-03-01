@@ -12,32 +12,34 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
+import android.util.Log
 import android.widget.CheckBox
 import androidx.appcompat.app.AlertDialog
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.adapter.CardRecyclerViewAdapter
+import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.model.CashbackDataSource
 import io.keyu.cashbackcalendarwidget.service.SharedPreferenceService
-import kotlinx.android.synthetic.main.view_card_list.*
-
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
-    private var data = CashbackDataSource.cashbacks
+    private var data: List<Card> = CashbackDataSource.cashbacks
+    private lateinit var cardList: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
+        cardList = findViewById(R.id.cardList)
         // staggerd cards grid
-        val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(data) }
         cardList.apply {
             setHasFixedSize(true)
             addItemDecoration(VerticalSpaceItemDecoration(18))
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            adapter = cardListAdapter
+            adapter = CardRecyclerViewAdapter().apply { setCardList(data) }
         }
 
         // dialog box
@@ -127,6 +129,15 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             } else {
                 SharedPreferenceService.setCardVisibility(this, cardConstName, false)
             }
+            data.map { card ->
+                if (card.name == cardConstName) {
+                    card.visibility = isChecked
+                }
+            }
+            for (c in data) {
+                Log.d("hehe", c.name + "--" + c.visibility.toString())
+            }
+            (cardList.adapter as CardRecyclerViewAdapter).setCardList(data)
         }
     }
 }
