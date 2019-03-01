@@ -134,9 +134,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                     card.visibility = isChecked
                 }
             }
-            for (c in data) {
-                Log.d("hehe", c.name + "--" + c.visibility.toString())
-            }
             (cardList.adapter as CardRecyclerViewAdapter).setCardList(data)
         }
     }
