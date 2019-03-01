@@ -2,6 +2,8 @@ package io.keyu.cashbackcalendarwidget.adapter
 
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.marginLeft
+import androidx.core.view.marginTop
 import androidx.recyclerview.widget.RecyclerView
 import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.view.CardView
@@ -24,14 +26,17 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
         holder.itemView.elevation = 0F
         holder.itemView.background.alpha = 0
         if (!curCard.visibility) {
-            // TODO: clear the margins and paddings
             holder.itemView.layoutParams = ViewGroup.LayoutParams(0, 0)
             holder.itemView.visibility = View.GONE
-        }
-        holder.cardView.apply {
-            setCardName(curCard.name)
-            setCardLogo(curCard.logo)
-            setCardCashbacks(curCard.cashbacks[0])
+        } else {
+            holder.itemView.layoutParams =
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            holder.itemView.visibility = View.VISIBLE
+            holder.cardView.apply {
+                setCardName(curCard.name)
+                setCardLogo(curCard.logo)
+                setCardCashbacks(curCard.cashbacks[0])
+            }
         }
     }
 
