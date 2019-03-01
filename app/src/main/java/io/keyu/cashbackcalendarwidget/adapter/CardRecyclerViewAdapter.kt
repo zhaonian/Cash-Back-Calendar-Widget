@@ -30,7 +30,7 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
             holder.itemView.visibility = View.GONE
         } else {
             holder.itemView.layoutParams =
-                ViewGroup.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
             holder.itemView.visibility = View.VISIBLE
             holder.cardView.apply {
                 setCardName(curCard.name)
