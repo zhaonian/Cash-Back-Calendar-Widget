@@ -10,12 +10,15 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/colorPrimary"
-            android:text="hahaha"
+            android:textColor="#ffffff"
             android:textSize="20sp"
+            android:textStyle="bold|italic"
             android:gravity="center"/>
 
     <TextView
             android:id="@+id/widgetItemCashbacks"
+            android:paddingStart="8dp"
+            android:paddingEnd="8dp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
