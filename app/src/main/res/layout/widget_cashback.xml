@@ -22,14 +22,13 @@
 
         <TextView
                 android:id="@+id/emptyStackView"
-                android:layout_width="match_parent" android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
                 android:background="@color/colorAccent"/>
 
-        <StackView
+        <ListView
                 android:id="@+id/stackView"
                 android:layout_width="match_parent" android:layout_height="match_parent" android:loopViews="true"/>
-
-
 
     </FrameLayout>
 
