@@ -35,9 +35,6 @@ class CashbackWidget : AppWidgetProvider() {
             context: Context, appWidgetManager: AppWidgetManager,
             appWidgetId: Int
         ) {
-
-            val widgetText = context.getString(R.string.appwidget_text)
-
             val serviceIntent = Intent(context, CashbackWidgetService::class.java)
             serviceIntent.putExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, appWidgetId)
             serviceIntent.data =
@@ -46,9 +43,8 @@ class CashbackWidget : AppWidgetProvider() {
 
             // Construct the RemoteViews object
             val views = RemoteViews(context.packageName, R.layout.widget_cashback)
-            views.setTextViewText(R.id.appwidget_text, widgetText)
-            views.setRemoteAdapter(R.id.stackView, serviceIntent)
-            views.setEmptyView(R.id.stackView, R.id.emptyStackView)
+            views.setRemoteAdapter(R.id.listView, serviceIntent)
+            views.setEmptyView(R.id.listView, R.id.emptyListView)
             // Instruct the widget manager to update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
         }
