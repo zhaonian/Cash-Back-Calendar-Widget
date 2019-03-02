@@ -8,10 +8,6 @@ import android.net.Uri
 import android.widget.RemoteViews
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.service.CashbackWidgetService
-import android.content.ComponentName
-import android.os.Parcelable
-import android.util.Log
-
 
 /**
  * Implementation of App Widget functionality.
@@ -34,19 +30,7 @@ class CashbackWidget : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
-//    override fun onReceive(context: Context?, intent: Intent?) {
-//        if (ACTION_REFRESH == intent!!.action) {
-//            val widgetId =
-//                intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
-//            val appWidgetManager = AppWidgetManager.getInstance(context)
-//            appWidgetManager.notifyAppWidgetViewDataChanged(widgetId, R.id.listView)
-//        }
-//        super.onReceive(context, intent)
-//    }
-
     companion object {
-
-        val ACTION_REFRESH = "action_refresh"
 
         internal fun updateAppWidget(
             context: Context,
