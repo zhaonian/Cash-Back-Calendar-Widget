@@ -44,8 +44,12 @@ class CashbackWidgetService : RemoteViewsService() {
 
         override fun getViewAt(p0: Int): RemoteViews {
             val views = RemoteViews(context.packageName, R.layout.widget_cashback_item)
-            views.setTextViewText(R.id.widgetItemText, cashbackList[p0].name)
-            views.setViewVisibility(R.id.widgetItemText, if (cashbackList[p0].visibility) View.VISIBLE else View.GONE)
+            views.setTextViewText(R.id.widgetItemName, cashbackList[p0].name)
+            views.setTextViewText(
+                R.id.widgetItemCashbacks,
+                cashbackList[p0].cashbacks[0].joinToString(separator = "\n")
+            )
+            views.setViewVisibility(R.id.widgetItem, if (cashbackList[p0].visibility) View.VISIBLE else View.GONE)
 
             return views
         }
