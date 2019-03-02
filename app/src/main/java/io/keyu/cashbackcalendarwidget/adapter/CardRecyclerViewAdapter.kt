@@ -1,5 +1,6 @@
 package io.keyu.cashbackcalendarwidget.adapter
 
+import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import io.keyu.cashbackcalendarwidget.model.Card
@@ -22,14 +23,23 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
         val curCard = cardList[position]
         holder.itemView.elevation = 0F
         holder.itemView.background.alpha = 0
-        holder.cardView.apply {
-            setCardName(curCard.name)
-            setCardLogo(curCard.logo)
-            setCardCashbacks(listOf("adfas", "adfs", "Asdfa"))
+        if (!curCard.visibility) {
+            holder.itemView.layoutParams = ViewGroup.LayoutParams(0, 0)
+            holder.itemView.visibility = View.GONE
+        } else {
+            holder.itemView.layoutParams =
+                ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT)
+            holder.itemView.visibility = View.VISIBLE
+            holder.cardView.apply {
+                setCardName(curCard.name)
+                setCardLogo(curCard.logo)
+                setCardCashbacks(curCard.cashbacks[0])
+            }
         }
     }
 
     fun setCardList(cardList: List<Card>) {
         this.cardList = cardList
+        notifyDataSetChanged()
     }
 }

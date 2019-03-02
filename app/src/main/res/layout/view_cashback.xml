@@ -7,10 +7,10 @@
             android:id="@+id/cashbackText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
             android:paddingTop="2dp"
             android:maxLines="2"
             android:ellipsize="middle"
+            android:textAlignment="textStart"
             android:text="hello world"
             android:textSize="18sp"/>
 </LinearLayout>

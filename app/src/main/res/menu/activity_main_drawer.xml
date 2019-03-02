@@ -7,7 +7,7 @@
         <item
                 android:id="@+id/nav_darkmode"
                 android:icon="@drawable/ic_menu_darkmode"
-                android:title="Dark Mode"/>
+                android:title="Dark Mode (coming soon)"/>
     </group>
 
     <item android:title="Communicate">
@@ -19,7 +19,7 @@
             <item
                     android:id="@+id/nav_rate"
                     android:icon="@drawable/ic_menu_rate"
-                    android:title="Rate"/>
+                    android:title="Rate me \\ (•◡•) /"/>
             <item
                     android:id="@+id/nav_bonus"
                     android:icon="@drawable/ic_menu_bonus"

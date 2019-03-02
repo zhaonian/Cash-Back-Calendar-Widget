@@ -1,47 +1,70 @@
 package io.keyu.cashbackcalendarwidget.view
 
+import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
-import com.google.android.material.snackbar.Snackbar
 import com.google.android.material.navigation.NavigationView
 import androidx.core.view.GravityCompat
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import android.view.MenuItem
-import kotlinx.android.synthetic.main.activity_main.*
-import kotlinx.android.synthetic.main.app_bar_main.*
+import kotlinx.android.synthetic.main.activity_main.drawer_layout
+import kotlinx.android.synthetic.main.activity_main.nav_view
+import kotlinx.android.synthetic.main.app_bar_main.toolbar
+import kotlinx.android.synthetic.main.app_bar_main.fab
 import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
+import android.widget.CheckBox
 import androidx.appcompat.app.AlertDialog
-import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.adapter.CardRecyclerViewAdapter
+import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.model.CashbackDataSource
-import kotlinx.android.synthetic.main.view_card_list.*
-
+import io.keyu.cashbackcalendarwidget.service.SharedPreferenceService
+import android.content.ComponentName
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
+
+    private var data: List<Card> = CashbackDataSource.cashbacks
+    private lateinit var cardList: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         setSupportActionBar(toolbar)
 
-        val cardListAdapter = CardRecyclerViewAdapter().apply { setCardList(CashbackDataSource.cashbacks) }
+        cardList = findViewById(R.id.cardList)
+        // staggerd cards grid
         cardList.apply {
             setHasFixedSize(true)
             addItemDecoration(VerticalSpaceItemDecoration(18))
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
-            adapter = cardListAdapter
+            adapter = CardRecyclerViewAdapter().apply { setCardList(data) }
         }
 
+        // dialog box
         fab.setOnClickListener {
             val selectionView = layoutInflater.inflate(R.layout.view_cards_selection, null, false)
+
+            val discoverIt = selectionView.findViewById<CheckBox>(R.id.discoverIt)
+            setCheckbox(discoverIt, SharedPreferenceService.DISCOVER_IT)
+
+            val chaseFreedom = selectionView.findViewById<CheckBox>(R.id.chaseFreedom)
+            setCheckbox(chaseFreedom, SharedPreferenceService.CHASE_FREEDOM)
+
+            val citiDividend = selectionView.findViewById<CheckBox>(R.id.citiDividend)
+            setCheckbox(citiDividend, SharedPreferenceService.CITI_DIVIDEND)
+
+            val bestBuy = selectionView.findViewById<CheckBox>(R.id.bestBuy)
+            setCheckbox(bestBuy, SharedPreferenceService.BESTBUY_VISA)
+
             AlertDialog.Builder(this).setView(selectionView).create().show()
         }
 
+        // drawer
         val toggle = ActionBarDrawerToggle(
             this, drawer_layout, toolbar,
             R.string.navigation_drawer_open,
@@ -95,5 +118,30 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
 
         drawer_layout.closeDrawer(GravityCompat.START)
         return true
+    }
+
+    private fun setCheckbox(checkbox: CheckBox, cardConstName: String) {
+        checkbox.isChecked =
+            SharedPreferenceService.getCardVisibility(this, cardConstName)
+        checkbox.setOnCheckedChangeListener { _, isChecked ->
+            if (isChecked) {
+                SharedPreferenceService.setCardVisibility(this, cardConstName, true)
+            } else {
+                SharedPreferenceService.setCardVisibility(this, cardConstName, false)
+            }
+            data.map { card ->
+                if (card.name == cardConstName) {
+                    card.visibility = isChecked
+                }
+            }
+            (cardList.adapter as CardRecyclerViewAdapter).setCardList(data)
+
+            // update widget
+            val appWidgetManager = AppWidgetManager.getInstance(this)
+            val ids = appWidgetManager.getAppWidgetIds(ComponentName(this, CashbackWidget::class.java))
+            for (id in ids) {
+                CashbackWidget.updateAppWidget(this, appWidgetManager, id)
+            }
+        }
     }
 }
