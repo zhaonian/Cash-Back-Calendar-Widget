@@ -25,11 +25,17 @@ import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.model.CashbackDataSource
 import io.keyu.cashbackcalendarwidget.service.SharedPreferenceService
 import android.content.ComponentName
+import android.util.Log
+import com.google.android.gms.ads.AdListener
+import com.google.android.gms.ads.AdRequest
+import com.google.android.gms.ads.InterstitialAd
+import com.google.android.gms.ads.MobileAds
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
     private var data: List<Card> = CashbackDataSource.cashbacks
     private lateinit var cardList: RecyclerView
+    private lateinit var mInterstitialAd: InterstitialAd
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,6 +49,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             addItemDecoration(VerticalSpaceItemDecoration(18))
             layoutManager = StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
             adapter = CardRecyclerViewAdapter().apply { setCardList(data) }
+        }
+
+        // initialize add
+        MobileAds.initialize(this, getString(R.string.admob_app_id))
+        mInterstitialAd = InterstitialAd(this)
+        mInterstitialAd.adUnitId = getString(R.string.admob_unit_id)
+        mInterstitialAd.loadAd(AdRequest.Builder().build())
+        mInterstitialAd.adListener = object : AdListener() {
+            override fun onAdClosed() {
+                mInterstitialAd.loadAd(AdRequest.Builder().build())
+            }
         }
 
         // dialog box
@@ -61,7 +78,17 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val bestBuy = selectionView.findViewById<CheckBox>(R.id.bestBuy)
             setCheckbox(bestBuy, SharedPreferenceService.BESTBUY_VISA)
 
-            AlertDialog.Builder(this).setView(selectionView).create().show()
+            AlertDialog.Builder(this)
+                .setView(selectionView)
+                .setOnDismissListener {
+                    if (mInterstitialAd.isLoaded) {
+                        mInterstitialAd.show()
+                    } else {
+                        Log.d("TAG", "The interstitial wasn't loaded yet.")
+                    }
+                }
+                .create()
+                .show()
         }
 
         // drawer

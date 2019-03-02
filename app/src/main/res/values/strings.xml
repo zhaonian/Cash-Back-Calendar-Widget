@@ -7,4 +7,6 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="appwidget_text">Cashback Widget</string>
     <string name="add_widget">Add widget</string>
+    <string name="admob_app_id">ca-app-pub-3493941937295991~9498259847</string>
+    <string name="admob_unit_id">ca-app-pub-3493941937295991/7216599487</string>
 </resources>
