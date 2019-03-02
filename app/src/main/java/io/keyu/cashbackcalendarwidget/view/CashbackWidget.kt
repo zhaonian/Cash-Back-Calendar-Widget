@@ -8,11 +8,16 @@ import android.net.Uri
 import android.widget.RemoteViews
 import io.keyu.cashbackcalendarwidget.R
 import io.keyu.cashbackcalendarwidget.service.CashbackWidgetService
+import android.content.ComponentName
+import android.os.Parcelable
+import android.util.Log
+
 
 /**
  * Implementation of App Widget functionality.
  */
 class CashbackWidget : AppWidgetProvider() {
+
 
     override fun onUpdate(context: Context, appWidgetManager: AppWidgetManager, appWidgetIds: IntArray) {
         // There may be multiple widgets active, so update all of them
@@ -29,10 +34,23 @@ class CashbackWidget : AppWidgetProvider() {
         // Enter relevant functionality for when the last widget is disabled
     }
 
+//    override fun onReceive(context: Context?, intent: Intent?) {
+//        if (ACTION_REFRESH == intent!!.action) {
+//            val widgetId =
+//                intent.getIntExtra(AppWidgetManager.EXTRA_APPWIDGET_ID, AppWidgetManager.INVALID_APPWIDGET_ID)
+//            val appWidgetManager = AppWidgetManager.getInstance(context)
+//            appWidgetManager.notifyAppWidgetViewDataChanged(widgetId, R.id.listView)
+//        }
+//        super.onReceive(context, intent)
+//    }
+
     companion object {
 
+        val ACTION_REFRESH = "action_refresh"
+
         internal fun updateAppWidget(
-            context: Context, appWidgetManager: AppWidgetManager,
+            context: Context,
+            appWidgetManager: AppWidgetManager,
             appWidgetId: Int
         ) {
             val serviceIntent = Intent(context, CashbackWidgetService::class.java)
@@ -47,6 +65,8 @@ class CashbackWidget : AppWidgetProvider() {
             views.setEmptyView(R.id.listView, R.id.emptyListView)
             // Instruct the widget manager to update the widget
             appWidgetManager.updateAppWidget(appWidgetId, views)
+
+            appWidgetManager.notifyAppWidgetViewDataChanged(appWidgetId, R.id.listView)
         }
     }
 }

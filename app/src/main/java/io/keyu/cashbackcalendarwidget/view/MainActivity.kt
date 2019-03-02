@@ -1,5 +1,6 @@
 package io.keyu.cashbackcalendarwidget.view
 
+import android.appwidget.AppWidgetManager
 import android.content.Intent
 import android.os.Bundle
 import com.google.android.material.navigation.NavigationView
@@ -12,7 +13,6 @@ import kotlinx.android.synthetic.main.app_bar_main.*
 import android.widget.Toast
 import android.content.ActivityNotFoundException
 import android.net.Uri
-import android.util.Log
 import android.widget.CheckBox
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +22,7 @@ import io.keyu.cashbackcalendarwidget.adapter.CardRecyclerViewAdapter
 import io.keyu.cashbackcalendarwidget.model.Card
 import io.keyu.cashbackcalendarwidget.model.CashbackDataSource
 import io.keyu.cashbackcalendarwidget.service.SharedPreferenceService
+import android.content.ComponentName
 
 class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -135,6 +136,13 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 }
             }
             (cardList.adapter as CardRecyclerViewAdapter).setCardList(data)
+
+            // update widget
+            val appWidgetManager = AppWidgetManager.getInstance(this)
+            val ids = appWidgetManager.getAppWidgetIds(ComponentName(this, CashbackWidget::class.java))
+            for (id in ids) {
+                CashbackWidget.updateAppWidget(this, appWidgetManager, id)
+            }
         }
     }
 }

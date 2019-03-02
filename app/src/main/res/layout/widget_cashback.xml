@@ -3,7 +3,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:padding="@dimen/widget_margin"
-                android:background="@color/colorPrimary">
+                android:background="#cfd8dc">
 
     <FrameLayout
             android:layout_width="match_parent"
