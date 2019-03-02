@@ -11,12 +11,7 @@
             android:layout_height="wrap_content"
             android:checked="true"
             android:text="Discover It"/>
-    <CheckBox
-            android:id="@+id/discoverMore"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:checked="true"
-            android:text="Discover More"/>
+
     <CheckBox
             android:id="@+id/chaseFreedom"
             android:layout_width="wrap_content"

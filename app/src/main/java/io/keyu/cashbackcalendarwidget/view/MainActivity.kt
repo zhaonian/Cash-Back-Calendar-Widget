@@ -52,9 +52,6 @@ class MainActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
             val discoverIt = selectionView.findViewById<CheckBox>(R.id.discoverIt)
             setCheckbox(discoverIt, SharedPreferenceService.DISCOVER_IT)
 
-            val discoverMore = selectionView.findViewById<CheckBox>(R.id.discoverMore)
-            setCheckbox(discoverMore, SharedPreferenceService.DISCOVER_MORE)
-
             val chaseFreedom = selectionView.findViewById<CheckBox>(R.id.chaseFreedom)
             setCheckbox(chaseFreedom, SharedPreferenceService.CHASE_FREEDOM)
 

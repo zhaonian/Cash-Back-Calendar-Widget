@@ -16,17 +16,6 @@ object CashbackDataSource {
             true
         ),
         Card(
-            "Discover More",
-            R.drawable.ic_discover_card,
-            listOf(
-                listOf("5% Grocery Store"),    // Q1
-                listOf("5% Gas Station", "5% Uber and Lyft"),    // Q2
-                listOf("5% Restaurant"),    // Q3
-                listOf("5% Amazon")     // Q4
-            ),
-            true
-        ),
-        Card(
             "Chase Freedom",
             R.drawable.ic_visa_card,
             listOf(
