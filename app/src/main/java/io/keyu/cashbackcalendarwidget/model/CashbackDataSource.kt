@@ -54,9 +54,10 @@ object CashbackDataSource {
             listOf(
                 listOf(
                     "5% Best Buy",
-                    "3% Fitness, Sporting Goods",
+                    "3% Fitness",
+                    "3% Sporting Goods",
                     "3% Gas Station",
-                    "2% Dinning and Grocery"
+                    "2% Dinning, Grocery"
                 ),    // Q1
                 listOf("Coming Soon"),    // Q2
                 listOf("Coming Soon"),    // Q3
