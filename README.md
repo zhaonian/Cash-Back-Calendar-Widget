@@ -9,7 +9,10 @@ an Android widget that pins the cash back calendars from various banks on your w
 4. Modify `fab.setOnClickListener` in `MainActivity.kt`
 5. Modify `setCardCashbacks(curCard.cashbacks[ {currentQuarter} ])` in `CardRecyclerViewAdapter.kt`
 <br/>
-<img alt='showcase 1' src='./showcase1.png' style="margin-right: 25px; width: 230px; "/>
-<img alt='showcase 2' src='showcase2.png' width='230px'/>
-<br/>
+<p float="left">
+  <img alt='showcase 1' src='./showcase1.png' width='230px'/>
+  &nbsp &nbsp
+  <img alt='showcase 2' src='./showcase2.png' width='230px'/>
+</p>
+
 <a href='https://play.google.com/store/apps/details?id=io.keyu.cashbackcalendarwidget&pcampaignid=MKT-Other-global-all-co-prtnr-py-PartBadge-Mar2515-1'><img alt='Get it on Google Play' src='https://play.google.com/intl/en_us/badges/images/generic/en_badge_web_generic.png' width='200px'/></a>
