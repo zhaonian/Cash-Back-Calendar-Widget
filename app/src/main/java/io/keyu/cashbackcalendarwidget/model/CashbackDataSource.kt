@@ -5,7 +5,7 @@ import io.keyu.cashbackcalendarwidget.R
 object CashbackDataSource {
     var cashbacks = listOf(
         Card(
-            "Discover It",
+            "Disc.",
             R.drawable.ic_discover_card,
             listOf(
                 listOf("5% Grocery Stores"),    // Q1

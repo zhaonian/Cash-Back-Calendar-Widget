@@ -5,7 +5,7 @@ apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
 
 ext.versionMajor = 0            // major version
-ext.versionMinor = 1            // minor version
+ext.versionMinor = 2            // minor version
 ext.versionPatch = 0            // bug fix
 ext.versionClassifier = null    // alpha beta rc
 ext.isSnapshot = false           // for releases during development

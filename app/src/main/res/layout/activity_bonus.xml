@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout
+        android:id="@+id/bonusLinearLayout"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
         android:orientation="vertical"
@@ -39,17 +40,20 @@
                     android:layout_height="wrap_content"
                     android:textSize="20sp"
                     android:textIsSelectable="true"
-                    android:text="Discover it"/>
+                    android:text="Disc. "/>
         </LinearLayout>
         <TextView
+                android:id="@+id/discoverIt"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:autoLink="web"
                 android:textSize="16sp"
                 android:textIsSelectable="true"
-                android:text="http://refer.discover.com/s/pppmnw"/>
-
+                android:textColor="#0000EE"
+                android:padding="4dp"
+                android:text="Referral Link"/>
+        <Space android:layout_width="match_parent" android:layout_height="8dp"/>
 
         <LinearLayout
                 android:layout_width="wrap_content"
@@ -70,13 +74,47 @@
                     android:text="AMEX Marriot Bonvoy"/>
         </LinearLayout>
         <TextView
+                android:id="@+id/amex"
                 android:layout_gravity="center_horizontal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="16sp"
                 android:autoLink="web"
+                android:textColor="#0000EE"
                 android:textIsSelectable="true"
-                android:text="http://refer.amex.us/ZHAONLK3yO?xl=cp27"/>
+                android:padding="4dp"
+                android:text="Referral Link"/>
+        <Space android:layout_width="match_parent" android:layout_height="8dp"/>
+
+        <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:orientation="horizontal">
+            <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:adjustViewBounds="true"
+                    android:paddingEnd="6dp"
+                    android:src="@drawable/ic_visa_card"/>
+            <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="20sp"
+                    android:textIsSelectable="true"
+                    android:text="Chase Freedom"/>
+        </LinearLayout>
+        <TextView
+                android:id="@+id/chaseFreedom"
+                android:layout_gravity="center_horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="16sp"
+                android:autoLink="web"
+                android:textColor="#0000EE"
+                android:textIsSelectable="true"
+                android:padding="4dp"
+                android:text="Referral Link"/>
 
     </LinearLayout>
 
