@@ -47,7 +47,7 @@ class CashbackWidgetService : RemoteViewsService() {
             views.setTextViewText(R.id.widgetItemName, cashbackList[p0].name)
             views.setTextViewText(
                 R.id.widgetItemCashbacks,
-                cashbackList[p0].cashbacks[0].joinToString(separator = "\n")
+                cashbackList[p0].cashbacks[1].joinToString(separator = "\n")
             )
             views.setViewVisibility(R.id.widgetItem, if (cashbackList[p0].visibility) View.VISIBLE else View.GONE)
 

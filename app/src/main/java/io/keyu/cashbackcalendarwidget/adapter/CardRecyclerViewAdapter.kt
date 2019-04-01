@@ -33,7 +33,7 @@ class CardRecyclerViewAdapter : RecyclerView.Adapter<CardViewHolder>() {
             holder.cardView.apply {
                 setCardName(curCard.name)
                 setCardLogo(curCard.logo)
-                setCardCashbacks(curCard.cashbacks[0])
+                setCardCashbacks(curCard.cashbacks[1])
             }
         }
     }

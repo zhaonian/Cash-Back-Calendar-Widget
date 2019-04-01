@@ -20,7 +20,7 @@ object CashbackDataSource {
             R.drawable.ic_visa_card,
             listOf(
                 listOf("5% Gas Station", "5% Tolls", "5% Drugstore"),    // Q1
-                listOf("Coming Soon"),    // Q2
+                listOf("5% Grocery Stores", "5% Home Improvement Stores"),    // Q2
                 listOf("Coming Soon"),    // Q3
                 listOf("Coming Soon")     // Q4
             ),
@@ -31,7 +31,7 @@ object CashbackDataSource {
             R.drawable.ic_citi_card,
             listOf(
                 listOf("5% Gas Station", "5% Home Depot"),    // Q1
-                listOf("5% Drugstore", "Fitness Club"),    // Q2
+                listOf("5% Drugstore", "5% Fitness Club"),    // Q2
                 listOf("5% Airline", "5% Car Rental"),    // Q3
                 listOf("5% Best Buy", "5% Department Store")     // Q4
             ),
@@ -48,7 +48,12 @@ object CashbackDataSource {
                     "3% Gas Station",
                     "2% Dinning, Grocery"
                 ),    // Q1
-                listOf("Coming Soon"),    // Q2
+                listOf(
+                    "5% Best Buy",
+                    "3% Air and Ground Transportation",
+                    "3% Gas Station",
+                    "2% Dinning, Grocery"
+                ),    // Q2
                 listOf("Coming Soon"),    // Q3
                 listOf("Coming Soon")     // Q4
             ),
